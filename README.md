@@ -39,7 +39,7 @@ Desenvolver um programa em linguagem C que implemente o clássico jogo da velha 
 - Mostrar mensagem de vitória ou empate ao final de cada partida
 - Apresentar o tabuleiro após cada jogada válida
 
-### EXEMPLO DE SAIDA ESPERADA
+### Exemplo de saida esperada
   
 
 
