@@ -1,4 +1,4 @@
-# Desenvolvimento do Jogo da Velha em C
+# Jogo da Velha em C
 
 ## Objetivo:
 Desenvolver um programa em linguagem C que implemente o clássico jogo da velha com todas as funcionalidades descritas abaixo.
