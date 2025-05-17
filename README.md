@@ -23,7 +23,7 @@ Implementar o clássico jogo da velha com todas as regras, validações e um sis
 - Dois jogadores:  
   - Jogador 1: `X`  
   - Jogador 2: `O`
-- Entrada da jogada via linha e coluna (valores de 1 a 4).
+- Entrada da jogada via linha e coluna (valores de 1 a 3).
 - Validação de jogadas:
   - Apenas posições vazias.
   - Dentro dos limites do tabuleiro.
