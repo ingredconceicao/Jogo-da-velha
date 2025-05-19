@@ -3,6 +3,7 @@
 
 
 char posicoes[3][3];
+int win=0;
 
 
 void tabuleiroJogo(){
@@ -47,6 +48,7 @@ void inserePlayer01(char p1){
 				quit=1;
 			}
 	}
+	verificaVitoria(p1);
 	
 }
 
@@ -65,36 +67,51 @@ void inserePlayer02(char p2){
 				quit=1;
 			}
 	}
-
+	verificaVitoria(p2);
+		
 }
 
+void verificaVitoria(char p){
+	switch (p){
+		case'x':
+			if(posicoes[1][1]=='x'&&posicoes[1][2]=='x'&&posicoes[1][3]=='x'||posicoes[2][1]=='x'&&posicoes[2][2]=='x'&&posicoes[2][3]=='x'
+			||posicoes[3][1]=='x'&&posicoes[3][2]=='x'&&posicoes[3][3]=='x'||posicoes[1][1]=='x'&&posicoes[2][1]=='x'&&posicoes[3][1]=='x'
+			||posicoes[1][2]=='x'&&posicoes[2][2]=='x'&&posicoes[3][2]=='x'||posicoes[1][3]=='x'&&posicoes[2][3]=='x'&&posicoes[3][3]=='x'
+			||posicoes[1][1]=='x'&&posicoes[2][2]=='x'&&posicoes[3][3]=='x'||posicoes[1][3]=='x'&&posicoes[2][2]=='x'&&posicoes[3][1]=='x'){
+				win=1;
+				break;
+			}
+			
+		case'o':
+			if(posicoes[1][1]=='o'&&posicoes[1][2]=='o'&&posicoes[1][3]=='o'||posicoes[2][1]=='o'&&posicoes[2][2]=='o'&&posicoes[2][3]=='o'
+			||posicoes[3][1]=='o'&&posicoes[3][2]=='o'&&posicoes[3][3]=='o'||posicoes[1][1]=='o'&&posicoes[2][1]=='o'&&posicoes[3][1]=='o'
+			||posicoes[1][2]=='o'&&posicoes[2][2]=='o'&&posicoes[3][2]=='o'||posicoes[1][3]=='o'&&posicoes[2][3]=='o'&&posicoes[3][3]=='o'
+			||posicoes[1][1]=='o'&&posicoes[2][2]=='o'&&posicoes[3][3]=='o'||posicoes[1][3]=='o'&&posicoes[2][2]=='o'&&posicoes[3][1]=='o'){
+				win=1;
+				break;
+			}
+	}
+  	
+}
+
+
 int main(int argc, char *argv[]) {
-	
 	char player1, player2;
 	int saida=0;
+	int cont=0;
 	
 	while(saida==0){
 		printf("Player 01, escolha 'X' ou 'O'\n");
   		 scanf(" %c", &player1);
 			switch(player1){
-				case 'X':
-					printf("Player 02 jogara com 'O'\n");
-					player2='O';
-					saida=1;
-					break;
 				case 'x':
 					printf("Player 02 jogara com 'o'\n");
 					player2='o';
 					saida=1;
 					break;
-				case 'O':
-					printf("Player 02 jogara com 'X'\n");
-					player2='X';
-					saida=1;
-					break;
 				case 'o':
 					printf("Player 02 jogara com 'x'\n");
-					player2='o';
+					player2='x';
 					saida=1;
 					break;
 				default:
@@ -103,14 +120,28 @@ int main(int argc, char *argv[]) {
 			}
 	}	
  		tabuleiroJogo();
-		printf("Inicio de jogo\n");				 
+		printf("Inicio de jogo\n");	
+					 
 	do{
 		
 		inserePlayer01(player1);
 		andamentoJogo();
+			cont++;
+			if(win==1){
+				printf("Player 01 Venceu\n");
+				break;
+			}
+			if (cont==9){
+			printf("Deu velha\n");
+				break;
+		}		
 		inserePlayer02(player2);
 		andamentoJogo();
-						
+			cont++;
+			if(win==1){
+				printf("Player 02 Venceu\n");
+				break;
+			}		
 	}while(saida==1);
 
 }
