@@ -90,36 +90,6 @@ void andamentoJogo() {
     printf("3 %c | %c  | %c \n", posicoes[3][1], posicoes[3][2], posicoes[3][3]);
 }
 
-
-void verificaVitoria(char p) {
-    switch (p) {
-        case 'x':
-            if ((posicoes[1][1] == 'x' && posicoes[1][2] == 'x' && posicoes[1][3] == 'x') ||
-                (posicoes[2][1] == 'x' && posicoes[2][2] == 'x' && posicoes[2][3] == 'x') ||
-                (posicoes[3][1] == 'x' && posicoes[3][2] == 'x' && posicoes[3][3] == 'x') ||
-                (posicoes[1][1] == 'x' && posicoes[2][1] == 'x' && posicoes[3][1] == 'x') ||
-                (posicoes[1][2] == 'x' && posicoes[2][2] == 'x' && posicoes[3][2] == 'x') ||
-                (posicoes[1][3] == 'x' && posicoes[2][3] == 'x' && posicoes[3][3] == 'x') ||
-                (posicoes[1][1] == 'x' && posicoes[2][2] == 'x' && posicoes[3][3] == 'x') ||
-                (posicoes[1][3] == 'x' && posicoes[2][2] == 'x' && posicoes[3][1] == 'x')) {
-                win = 1;
-                break;
-            }
-        case 'o':
-            if ((posicoes[1][1] == 'o' && posicoes[1][2] == 'o' && posicoes[1][3] == 'o') ||
-                (posicoes[2][1] == 'o' && posicoes[2][2] == 'o' && posicoes[2][3] == 'o') ||
-                (posicoes[3][1] == 'o' && posicoes[3][2] == 'o' && posicoes[3][3] == 'o') ||
-                (posicoes[1][1] == 'o' && posicoes[2][1] == 'o' && posicoes[3][1] == 'o') ||
-                (posicoes[1][2] == 'o' && posicoes[2][2] == 'o' && posicoes[3][2] == 'o') ||
-                (posicoes[1][3] == 'o' && posicoes[2][3] == 'o' && posicoes[3][3] == 'o') ||
-                (posicoes[1][1] == 'o' && posicoes[2][2] == 'o' && posicoes[3][3] == 'o') ||
-                (posicoes[1][3] == 'o' && posicoes[2][2] == 'o' && posicoes[3][1] == 'o')) {
-                win = 1;
-                break;
-            }
-    }
-}
-
 void inserePlayer01(char p1) {
     int linha, coluna = 0;
     int quit = 0;
@@ -156,6 +126,34 @@ void inserePlayer02(char p2) {
     verificaVitoria(p2);
 }
 
+void verificaVitoria(char p) {
+    switch (p) {
+        case 'x':
+            if ((posicoes[1][1] == 'x' && posicoes[1][2] == 'x' && posicoes[1][3] == 'x') ||
+                (posicoes[2][1] == 'x' && posicoes[2][2] == 'x' && posicoes[2][3] == 'x') ||
+                (posicoes[3][1] == 'x' && posicoes[3][2] == 'x' && posicoes[3][3] == 'x') ||
+                (posicoes[1][1] == 'x' && posicoes[2][1] == 'x' && posicoes[3][1] == 'x') ||
+                (posicoes[1][2] == 'x' && posicoes[2][2] == 'x' && posicoes[3][2] == 'x') ||
+                (posicoes[1][3] == 'x' && posicoes[2][3] == 'x' && posicoes[3][3] == 'x') ||
+                (posicoes[1][1] == 'x' && posicoes[2][2] == 'x' && posicoes[3][3] == 'x') ||
+                (posicoes[1][3] == 'x' && posicoes[2][2] == 'x' && posicoes[3][1] == 'x')) {
+                win = 1;
+                break;
+            }
+        case 'o':
+            if ((posicoes[1][1] == 'o' && posicoes[1][2] == 'o' && posicoes[1][3] == 'o') ||
+                (posicoes[2][1] == 'o' && posicoes[2][2] == 'o' && posicoes[2][3] == 'o') ||
+                (posicoes[3][1] == 'o' && posicoes[3][2] == 'o' && posicoes[3][3] == 'o') ||
+                (posicoes[1][1] == 'o' && posicoes[2][1] == 'o' && posicoes[3][1] == 'o') ||
+                (posicoes[1][2] == 'o' && posicoes[2][2] == 'o' && posicoes[3][2] == 'o') ||
+                (posicoes[1][3] == 'o' && posicoes[2][3] == 'o' && posicoes[3][3] == 'o') ||
+                (posicoes[1][1] == 'o' && posicoes[2][2] == 'o' && posicoes[3][3] == 'o') ||
+                (posicoes[1][3] == 'o' && posicoes[2][2] == 'o' && posicoes[3][1] == 'o')) {
+                win = 1;
+                break;
+            }
+    }
+}
 
 void mostrarPlacar() {
     printf("\n==== PLACAR ====\n");
@@ -269,4 +267,3 @@ while(escolha!=0){
 	salvarRanking(jogador);
     return 0;
 }
-
